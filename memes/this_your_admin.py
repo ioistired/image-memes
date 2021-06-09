@@ -5,7 +5,7 @@ import wand.image
 import wand.color
 import wand.drawing
 
-from .. import _get_res_dir
+from . import _get_resource_dir
 
 # padding from the page to the post background
 POST_PADDING = 20
@@ -14,7 +14,7 @@ IMAGE_PADDING = 30
 PAGE_BACKGROUND_COLOR = wand.color.Color('#191b22')
 POST_BACKGROUND_COLOR = wand.color.Color('#313543')
 
-RESOURCE_DIR = _get_res_dir(__module__)
+RESOURCE_DIR = _get_resource_dir(__name__)
 
 def draw_background(img, *, color, left, top, right, bottom):
 	with wand.drawing.Drawing() as bg:
@@ -24,8 +24,8 @@ def draw_background(img, *, color, left, top, right, bottom):
 
 def this_your_admin(to_insert: wand.image.Image) -> wand.image.Image:
 	with (
-		wand.image.Image(filename=RES_DIR / 'this_your_admin.png') as this_your_admin,
-		wand.image.Image(filename=RES_DIR / 'you_clowns.png') as you_clowns,
+		wand.image.Image(filename=RESOURCE_DIR / 'this_your_admin.png') as this_your_admin,
+		wand.image.Image(filename=RESOURCE_DIR / 'you_clowns.png') as you_clowns,
 	):
 		target_width = this_your_admin.width - 2 * POST_PADDING - 2 * IMAGE_PADDING
 		to_insert.transform(resize=f'{target_width}x{to_insert.height}')

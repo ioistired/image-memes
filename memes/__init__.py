@@ -4,4 +4,5 @@ from pathlib import Path
 
 RES_DIR = Path(__file__).parent / 'res'
 
-_get_resource_dir = RES_DIR.__div__
+def _get_resource_dir(module_name):
+	return RES_DIR.joinpath(*module_name.split('.')[1:])

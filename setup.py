@@ -13,7 +13,7 @@ with open(HERE / 'requirements.txt') as f:
 	install_requires = f.readlines()
 
 setuptools.setup(
-	name='timecard-cli',
+	name='memes',
 	url='https://github.com/ioistired/image-memes',
 	version='0.0.0',
 	packages=['memes'],
@@ -32,5 +32,10 @@ setuptools.setup(
 		'License :: OSI Approved :: MIT License',
 		'License :: Other/Proprietary License',
 	],
-	include_package_data=True,
+	package_data={'memes': [
+		'res/this_your_admin/*.png',
+	]},
+	entry_points={
+		'console_scripts': ['this-your-admin = memes.this_your_admin:main'],
+	},
 )
