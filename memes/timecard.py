@@ -1,1 +1,1 @@
-from timecard_cli import timecard
+from timecard import timecard

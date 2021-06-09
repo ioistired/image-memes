@@ -2,7 +2,10 @@
 
 from pathlib import Path
 
-RES_DIR = Path(__file__).parent / 'res'
+_RES_DIR = Path(__file__).parent / 'res'
 
 def _get_resource_dir(module_name):
-	return RES_DIR.joinpath(*module_name.split('.')[1:])
+	return _RES_DIR.joinpath(*module_name.split('.')[1:])
+
+from .this_your_admin import this_your_admin
+from .timecard import timecard
