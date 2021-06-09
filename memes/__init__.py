@@ -8,4 +8,3 @@ def _get_resource_dir(module_name):
 	return _RES_DIR.joinpath(*module_name.split('.')[1:])
 
 from .this_your_admin import this_your_admin
-from .timecard import timecard

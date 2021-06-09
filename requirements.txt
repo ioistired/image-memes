@@ -1,2 +1,1 @@
 Wand ~= 0.6
-timecard-cli @ git+https://github.com/ioistired/timecard-cli.git
