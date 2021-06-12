@@ -16,7 +16,7 @@ setuptools.setup(
 	name='memes',
 	url='https://github.com/ioistired/image-memes',
 	version='0.0.0',
-	packages=['memes'],
+	packages=setuptools.find_packages(),
 	license='EUPL-1.2',
 	description='Generate meme images',
 	long_description=README,
