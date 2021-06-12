@@ -5,7 +5,7 @@ import wand.image
 import wand.color
 import wand.drawing
 
-from . import _get_resource_dir
+from .. import _get_resource_dir
 
 # padding from the page to the post background
 POST_PADDING = 20
@@ -61,16 +61,3 @@ def this_your_admin(to_insert: wand.image.Image) -> wand.image.Image:
 		out.composite(to_insert, int(scale_factor * (POST_PADDING + IMAGE_PADDING)), this_your_admin.height)
 		out.composite(you_clowns, 0, this_your_admin.height + to_insert.height)
 		return out.convert('png')
-
-def main():
-	import sys
-	import wand.display
-	with (
-		wand.image.Image(blob=sys.stdin.buffer.read()) as to_insert,
-		this_your_admin(to_insert) as out,
-	):
-		wand.display.display(out)
-		out.save(file=sys.stdout.buffer)
-
-if __name__ == '__main__':
-	main()
