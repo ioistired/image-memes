@@ -62,8 +62,6 @@ def crab_rave(text, output_file_path) -> None:
 		lines = raster_font_textwrap(text, CANVAS_SIZE.width, font)
 		estimated_height = line_height * len(lines)
 
-	print(font_height)
-
 	# Draw and save to temporary file for ffmpeg to read
 	im = Image.new("RGBA", CANVAS_SIZE)
 	draw = ImageDraw.Draw(im)
@@ -85,6 +83,7 @@ def crab_rave(text, output_file_path) -> None:
 		subprocess.check_call([
 				"ffmpeg", "-i", RESOURCE_DIR / 'cr.mp4', "-i", text_img_file.name,
 				"-filter_complex", "[0:v][1:v] overlay=0:0",
-				"-pix_fmt", "yuv420p", output_file_path,
+				"-pix_fmt", "yuv420p", '-y', output_file_path,
 			],
+			stderr=subprocess.DEVNULL,
 		)
