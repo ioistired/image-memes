@@ -34,6 +34,8 @@ setuptools.setup(
 	],
 	package_data={'memes': [
 		'res/this_your_admin/*.png',
+		'res/crab_rave/*.mp4',
+		'res/crab_rave/*.otf',
 	]},
 	entry_points={
 		'console_scripts': ['this-your-admin = memes.this_your_admin:main'],

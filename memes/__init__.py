@@ -9,3 +9,4 @@ def _get_resource_dir(module_name):
 
 from .this_your_admin import this_your_admin
 from .timecard import timecard
+from .crab_rave import crab_rave
